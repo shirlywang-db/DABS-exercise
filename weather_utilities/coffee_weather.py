@@ -1,4 +1,3 @@
-# Databricks notebook source
 import openmeteo_requests
 
 import requests_cache
