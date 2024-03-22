@@ -1,0 +1,6 @@
+pytest
+databricks-connect==14.3.1
+openmeteo-requests
+requests-cache 
+retry_requests
+geopy
