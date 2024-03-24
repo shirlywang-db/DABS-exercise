@@ -33,9 +33,3 @@ targets:
     workspace:
       host: https://e2-demo-field-eng.cloud.databricks.com
       # We always use /Users/kimberly.mahoney@databricks.com for all resources to make sure we only have a single copy.
-      # If this path results in an error, please make sure you have a recent version of the CLI installed.
-      root_path: /Users/kimberly.mahoney@databricks.com/.bundle/${bundle.name}/${bundle.target}
-    run_as:
-      # This runs as kimberly.mahoney@databricks.com in production. We could also use a service principal here,
-      # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
-      user_name: kimberly.mahoney@databricks.com
