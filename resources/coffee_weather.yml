@@ -11,6 +11,7 @@ resources:
           run_if: ALL_SUCCESS
           notification_settings: {}
           webhook_notifications: {}
+          environment_key: Default
       environments:
         - environment_key: Default
           spec:
