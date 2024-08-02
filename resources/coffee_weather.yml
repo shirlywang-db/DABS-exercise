@@ -2,10 +2,6 @@ resources:
   jobs:
     coffee_weather:
       name: ${bundle.target}_${workspace.current_user.userName}_Coffee Weather
-      compute:
-        - compute_key: Default
-          spec:
-            kind: SERVERLESS_PREVIEW
       tasks:
         - task_key: ingest
           email_notifications: {}
@@ -14,16 +10,16 @@ resources:
             source: WORKSPACE
           run_if: ALL_SUCCESS
           notification_settings: {}
-          libraries:
-            - pypi:
-                package: openmeteo-requests==1.2.0
-            - pypi:
-                package: requests-cache==1.2.0
-            - pypi:
-                package: retry-requests==2.0.0
-            - pypi:
-                package: geopy==2.4.1
           webhook_notifications: {}
+      environments:
+        - environment_key: Default
+          spec:
+            client: "1"
+            dependencies:
+              - openmeteo-requests==1.2.0
+              - requests-cache==1.2.0
+              - retry-requests==2.0.0
+              - geopy==2.4.1
       parameters:
         - name: schema_name
           default: coffee_weather_${bundle.target}
