@@ -12,7 +12,6 @@ resources:
           notebook_task:
             notebook_path: ../notebooks/my_notebook.ipynb
             source: WORKSPACE
-          compute_key: Default
           run_if: ALL_SUCCESS
           notification_settings: {}
           libraries:
