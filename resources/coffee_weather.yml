@@ -1,7 +1,7 @@
 resources:
   jobs:
     coffee_weather:
-      name: Coffee Weather
+      name: Coffee Weather_${workspace.current_user.short_name}
       tasks:
         - task_key: ingest
           email_notifications: {}
