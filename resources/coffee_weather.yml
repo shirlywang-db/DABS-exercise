@@ -1,7 +1,7 @@
 resources:
   jobs:
     coffee_weather:
-      name: ${bundle.target}_${workspace.current_user.userName}_Coffee Weather
+      name: Coffee Weather
       tasks:
         - task_key: ingest
           email_notifications: {}
