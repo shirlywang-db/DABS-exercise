@@ -1,7 +1,7 @@
 resources:
   jobs:
     coffee_weather:
-      name: Coffee Weather
+      name: ${bundle.target}_${workspace.current_user.userName}_Coffee Weather
       compute:
         - compute_key: Default
           spec:
@@ -25,6 +25,9 @@ resources:
             - pypi:
                 package: geopy==2.4.1
           webhook_notifications: {}
+      parameters:
+        - name: schema_name
+          default: coffee_weather_${bundle.target}
       max_concurrent_runs: 1
       email_notifications: {}
       webhook_notifications: {}
