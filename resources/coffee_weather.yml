@@ -11,16 +11,6 @@ resources:
           run_if: ALL_SUCCESS
           notification_settings: {}
           webhook_notifications: {}
-          environment_key: Default
-      environments:
-        - environment_key: Default
-          spec:
-            client: "1"
-            dependencies:
-              - openmeteo-requests==1.2.0
-              - requests-cache==1.2.0
-              - retry-requests==2.0.0
-              - geopy==2.4.1
       parameters:
         - name: schema_name
           default: coffee_weather_${bundle.target}
