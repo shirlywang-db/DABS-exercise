@@ -33,5 +33,5 @@ targets:
     run_as:
       user_name: ${workspace.current_user.userName}
     workspace:
-      host: https://e2-demo-field-eng.cloud.databricks.com
+      host: https://e2-demo-west.cloud.databricks.com/
       # We always use /Users/kimberly.mahoney@databricks.com for all resources to make sure we only have a single copy.
