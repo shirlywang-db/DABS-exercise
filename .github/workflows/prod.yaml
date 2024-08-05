@@ -40,5 +40,5 @@ jobs:
         run: |
           databricks bundle run --refresh-all 2>&1 | tee output.log
         env:
-          DATABRICKS_TOKEN: ${{ secrets.E2_FE_WEST }}
+          DATABRICKS_TOKEN: ${{ secrets.E2_DEMO_WEST }}
           DATABRICKS_BUNDLE_ENV: prod
