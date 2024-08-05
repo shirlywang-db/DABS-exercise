@@ -11,6 +11,16 @@ resources:
           run_if: ALL_SUCCESS
           notification_settings: {}
           webhook_notifications: {}
+        - task_key: refined
+          depends_on:
+            - task_key: ingest
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../notebooks/weather_coffee_refined.ipynb
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          notification_settings: {}
+          webhook_notifications: {}
       parameters:
         - name: schema_name
           default: coffee_weather_${bundle.target}
