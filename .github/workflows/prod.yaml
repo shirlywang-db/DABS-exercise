@@ -19,7 +19,7 @@ jobs:
 
       - run: databricks bundle deploy
         env:
-          DATABRICKS_TOKEN: ${{ secrets.E2_FE_WEST }}
+          DATABRICKS_TOKEN: ${{ secrets.E2_DEMO_WEST }}
           DATABRICKS_BUNDLE_ENV: prod
 
   worflow_run:
