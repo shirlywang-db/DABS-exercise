@@ -1,0 +1,44 @@
+# prod.yaml
+name: Deploy to prod
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  deploy:
+    name: "Deploy bundle"
+    runs-on: ubuntu-latest
+    environment: prod
+
+    steps:
+      - uses: actions/checkout@v4  # Update to the latest version
+
+      - uses: databricks/setup-cli@main
+
+      - run: databricks bundle deploy
+        env:
+          DATABRICKS_TOKEN: ${{ secrets.E2_FE_WEST }}
+          DATABRICKS_BUNDLE_ENV: prod
+
+  worflow_run:
+    name: "Job run for the workflow"
+    runs-on: ubuntu-latest
+    environment: prod
+
+    needs:
+      - deploy
+
+    steps:
+      - uses: actions/checkout@v4  # Update to the latest version
+
+      - uses: databricks/setup-cli@main
+
+      - shell: bash
+        name: Run pipeline update
+        run: |
+          databricks bundle run --refresh-all 2>&1 | tee output.log
+        env:
+          DATABRICKS_TOKEN: ${{ secrets.E2_FE_WEST }}
+          DATABRICKS_BUNDLE_ENV: prod
