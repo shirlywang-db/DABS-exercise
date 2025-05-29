@@ -1,7 +1,9 @@
 resources:
   jobs:
     coffee_weather:
-      name: Coffee Weather_${workspace.current_user.short_name}
+      name: Coffee Weather_${workspace.current_user.short_name}_${target}
+      tags:
+        branch: ${bundle.git.branch}
       tasks:
         - task_key: ingest
           email_notifications: {}
