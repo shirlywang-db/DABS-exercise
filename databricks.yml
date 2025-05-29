@@ -39,6 +39,7 @@ targets:
         coffee_weather:
           schedule: 
             quartz_cron_expression: 17 0 12 * * ?
+            timezone_id: UTC
 
 prod-parallel:
     # We use 'mode: production' to indicate this is a production deployment.
@@ -53,3 +54,4 @@ prod-parallel:
         coffee_weather:
           schedule: 
             quartz_cron_expression: 17 0 10 * * ?
+            timezone_id: UTC

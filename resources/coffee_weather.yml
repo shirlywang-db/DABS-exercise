@@ -1,7 +1,7 @@
 resources:
   jobs:
     coffee_weather:
-      name: Coffee Weather_${workspace.current_user.short_name}_${target}
+      name: Coffee Weather_${workspace.current_user.short_name}_${bundle.target}
       tags:
         branch: ${bundle.git.branch}
       tasks:
