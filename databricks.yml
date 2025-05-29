@@ -40,7 +40,7 @@ targets:
           schedule: 
             quartz_cron_expression: 17 0 12 * * ?
 
-prod-parallel:
+  prod-parallel:
     # We use 'mode: production' to indicate this is a production deployment.
     # Doing so enables strict verification of the settings below.
     mode: production
