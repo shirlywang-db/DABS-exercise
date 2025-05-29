@@ -1,7 +1,9 @@
 resources:
   jobs:
     coffee_weather:
-      name: Coffee Weather_${workspace.current_user.short_name}
+      name: Coffee Weather_${workspace.current_user.short_name}_${target}
+      tags:
+        branch: ${bundle.git.branch}
       tasks:
         - task_key: ingest
           email_notifications: {}
@@ -27,3 +29,7 @@ resources:
       max_concurrent_runs: 1
       email_notifications: {}
       webhook_notifications: {}
+      schedule:
+        quartz_cron_expression: 17 0 8 * * ?
+        timezone_id: UTC
+        pause_status: PAUSED
