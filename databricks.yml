@@ -26,12 +26,32 @@ targets:
   #     host: https://e2-demo-field-eng.cloud.databricks.com
 
   # The 'prod' target, used for production deployment.
-  prod:
+  prod-main:
     # We use 'mode: production' to indicate this is a production deployment.
     # Doing so enables strict verification of the settings below.
     mode: production
     run_as:
       user_name: ${workspace.current_user.userName}
     workspace:
-      host: https://e2-demo-west.cloud.databricks.com/
-      # We always use /Users/kimberly.mahoney@databricks.com for all resources to make sure we only have a single copy.
+      host: https://e2-demo-field-eng.cloud.databricks.com
+    resources:
+      jobs:
+        coffee_weather:
+          schedule: 
+            quartz_cron_expression: 17 0 12 * * ?
+            timezone_id: UTC
+
+  prod-parallel:
+    # We use 'mode: production' to indicate this is a production deployment.
+    # Doing so enables strict verification of the settings below.
+    mode: production
+    run_as:
+      user_name: ${workspace.current_user.userName}
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+    resources:
+      jobs:
+        coffee_weather:
+          schedule: 
+            quartz_cron_expression: 17 0 10 * * ?
+            timezone_id: UTC
