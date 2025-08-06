@@ -48,7 +48,7 @@ targets:
       jobs:
         coffee_weather:
           tags:
-            branch: ${bundle.name}
+            branch: ${bundle.git.branch}
 
   prod-parallel:
     # We use 'mode: production' to indicate this is a production deployment.
