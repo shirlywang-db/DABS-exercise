@@ -26,6 +26,16 @@ targets:
   #     host: https://e2-demo-field-eng.cloud.databricks.com
 
   # The 'prod' target, used for production deployment.
+  prod-single:
+    # We use 'mode: production' to indicate this is a production deployment.
+    # Doing so enables strict verification of the settings below.
+    mode: production
+    run_as:
+      user_name: ${workspace.current_user.userName}
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+      root_path: /Workspace/Shared/${bundle.name}/Production/${bundle.name}
+            
   prod-main:
     # We use 'mode: production' to indicate this is a production deployment.
     # Doing so enables strict verification of the settings below.
@@ -37,9 +47,8 @@ targets:
     resources:
       jobs:
         coffee_weather:
-          schedule: 
-            quartz_cron_expression: 17 0 12 * * ?
-            timezone_id: UTC
+          tags:
+            branch: ${bundle.name}
 
   prod-parallel:
     # We use 'mode: production' to indicate this is a production deployment.
@@ -52,6 +61,5 @@ targets:
     resources:
       jobs:
         coffee_weather:
-          schedule: 
-            quartz_cron_expression: 17 0 10 * * ?
-            timezone_id: UTC
+          tags:
+            branch: ${bundle.name}
