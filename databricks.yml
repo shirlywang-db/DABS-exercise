@@ -35,7 +35,8 @@ targets:
     workspace:
       host: https://e2-demo-field-eng.cloud.databricks.com
       root_path: /Workspace/Shared/${bundle.name}/Production/${bundle.git.branch}
-            
+      state_path: ${workspace.root_path}/${bundle.git.branch}/state 
+ 
   prod-main:
     # We use 'mode: production' to indicate this is a production deployment.
     # Doing so enables strict verification of the settings below.
